@@ -11,6 +11,8 @@
 		0AB6FE962A5EEDDB00E7A19E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6FE952A5EEDDB00E7A19E /* ContentView.swift */; };
 		0AB6FE982A5EEDDD00E7A19E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AB6FE972A5EEDDD00E7A19E /* Assets.xcassets */; };
 		0AB6FE9C2A5EEDDD00E7A19E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AB6FE9B2A5EEDDD00E7A19E /* Preview Assets.xcassets */; };
+		0AB6FEA42A5EEE4800E7A19E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 0AB6FEA32A5EEE4800E7A19E /* ComposableArchitecture */; };
+		0AB6FEA62A5EEE6B00E7A19E /* ContactsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6FEA52A5EEE6B00E7A19E /* ContactsFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,7 @@
 		0AB6FE972A5EEDDD00E7A19E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AB6FE992A5EEDDD00E7A19E /* TCAContacts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TCAContacts.entitlements; sourceTree = "<group>"; };
 		0AB6FE9B2A5EEDDD00E7A19E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0AB6FEA52A5EEE6B00E7A19E /* ContactsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB6FEA42A5EEE4800E7A19E /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +58,7 @@
 			children = (
 				0AB6FE932A5EEDDB00E7A19E /* TCAContactsApp.swift */,
 				0AB6FE952A5EEDDB00E7A19E /* ContentView.swift */,
+				0AB6FEA52A5EEE6B00E7A19E /* ContactsFeature.swift */,
 				0AB6FE972A5EEDDD00E7A19E /* Assets.xcassets */,
 				0AB6FE992A5EEDDD00E7A19E /* TCAContacts.entitlements */,
 				0AB6FE9A2A5EEDDD00E7A19E /* Preview Content */,
@@ -85,6 +90,9 @@
 			dependencies = (
 			);
 			name = TCAContacts;
+			packageProductDependencies = (
+				0AB6FEA32A5EEE4800E7A19E /* ComposableArchitecture */,
+			);
 			productName = TCAContacts;
 			productReference = 0AB6FE902A5EEDDB00E7A19E /* TCAContacts.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +121,9 @@
 				Base,
 			);
 			mainGroup = 0AB6FE872A5EEDDB00E7A19E;
+			packageReferences = (
+				0AB6FEA22A5EEE4800E7A19E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 0AB6FE912A5EEDDB00E7A19E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -141,6 +152,7 @@
 			files = (
 				0AB6FE962A5EEDDB00E7A19E /* ContentView.swift in Sources */,
 				0AB6FE942A5EEDDB00E7A19E /* TCAContactsApp.swift in Sources */,
+				0AB6FEA62A5EEE6B00E7A19E /* ContactsFeature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +371,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0AB6FEA22A5EEE4800E7A19E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.55.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0AB6FEA32A5EEE4800E7A19E /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AB6FEA22A5EEE4800E7A19E /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0AB6FE882A5EEDDB00E7A19E /* Project object */;
 }
