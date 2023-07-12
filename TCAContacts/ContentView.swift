@@ -31,6 +31,17 @@ struct ContentView: View {
 				}
 			}
 		}
+		.sheet(
+			store: self.store.scope(
+				state: \.$addContact,
+				action: { .addContact($0) }
+			),
+			content: { addContactStore in
+				NavigationStack {
+					AddContactView(store: addContactStore)
+				}
+			}
+		)
 	}
 }
 
