@@ -14,6 +14,7 @@
 		0AB6FEA42A5EEE4800E7A19E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 0AB6FEA32A5EEE4800E7A19E /* ComposableArchitecture */; };
 		0AB6FEA62A5EEE6B00E7A19E /* ContactsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6FEA52A5EEE6B00E7A19E /* ContactsFeature.swift */; };
 		0AB6FEA82A5EEF8400E7A19E /* AddContactFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6FEA72A5EEF8400E7A19E /* AddContactFeature.swift */; };
+		0AB6FEAA2A5FA17000E7A19E /* ContactDetailFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6FEA92A5FA17000E7A19E /* ContactDetailFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		0AB6FE9B2A5EEDDD00E7A19E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0AB6FEA52A5EEE6B00E7A19E /* ContactsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFeature.swift; sourceTree = "<group>"; };
 		0AB6FEA72A5EEF8400E7A19E /* AddContactFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactFeature.swift; sourceTree = "<group>"; };
+		0AB6FEA92A5FA17000E7A19E /* ContactDetailFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				0AB6FE952A5EEDDB00E7A19E /* ContentView.swift */,
 				0AB6FEA72A5EEF8400E7A19E /* AddContactFeature.swift */,
 				0AB6FEA52A5EEE6B00E7A19E /* ContactsFeature.swift */,
+				0AB6FEA92A5FA17000E7A19E /* ContactDetailFeature.swift */,
 				0AB6FE972A5EEDDD00E7A19E /* Assets.xcassets */,
 				0AB6FE992A5EEDDD00E7A19E /* TCAContacts.entitlements */,
 				0AB6FE9A2A5EEDDD00E7A19E /* Preview Content */,
@@ -153,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB6FEAA2A5FA17000E7A19E /* ContactDetailFeature.swift in Sources */,
 				0AB6FE962A5EEDDB00E7A19E /* ContentView.swift in Sources */,
 				0AB6FE942A5EEDDB00E7A19E /* TCAContactsApp.swift in Sources */,
 				0AB6FEA62A5EEE6B00E7A19E /* ContactsFeature.swift in Sources */,
