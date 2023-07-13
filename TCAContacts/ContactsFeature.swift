@@ -35,10 +35,11 @@ extension ContactsFeature {
 
 struct ContactsFeature: ReducerProtocol {
 	struct State: Equatable {
+		var contacts: IdentifiedArrayOf<Contact> = []
 //		@PresentationState var addContact: AddContactFeature.State?
 //		@PresentationState var alert: AlertState<Action.Alert>?
 		@PresentationState var destination: Destination.State?
-		var contacts: IdentifiedArrayOf<Contact> = []
+		var path = StackState<ContactDetailFeature.State>()
 	}
 	enum Action: Equatable {
 		case addButtonTapped
@@ -46,6 +47,7 @@ struct ContactsFeature: ReducerProtocol {
 //		case alert(PresentationAction<Alert>)
 		case deleteButtonTapped(id: Contact.ID)
 		case destination(PresentationAction<Destination.Action>)
+		case path(StackAction<ContactDetailFeature.State, ContactDetailFeature.Action>)
 		
 		enum Alert: Equatable {
 			case confirmDeletion(id: Contact.ID)
@@ -92,10 +94,16 @@ struct ContactsFeature: ReducerProtocol {
 
 			case .destination:
 				return .none
+				
+			case .path:
+				return .none
 			}
 		}
 		.ifLet(\.$destination, action: /Action.destination) {
 			Destination()
+		}
+		.forEach(\.path, action: /Action.path) {
+			ContactDetailFeature()
 		}
 //		.ifLet(\.$addContact, action: /Action.addContact) {
 //			AddContactFeature()

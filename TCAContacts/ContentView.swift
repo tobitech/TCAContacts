@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  TCAContacts
-//
-//  Created by Oluwatobi Omotayo on 12/07/2023.
-//
-
 import ComposableArchitecture
 import SwiftUI
 
@@ -12,20 +5,23 @@ struct ContentView: View {
 	let store: StoreOf<ContactsFeature>
 
 	var body: some View {
-		NavigationStack {
+		NavigationStackStore(self.store.scope(state: \.path, action: { .path($0) })) {
 			WithViewStore(self.store, observe: \.contacts) { viewStore in
 				List {
 					ForEach(viewStore.state) { contact in
-						HStack {
-							Text(contact.name)
-							Spacer()
-							Button {
-								viewStore.send(.deleteButtonTapped(id: contact.id))
-							} label: {
-								Image(systemName: "trash")
-									.foregroundStyle(.red)
+						NavigationLink(state: ContactDetailFeature.State(contact)) {
+							HStack {
+								Text(contact.name)
+								Spacer()
+								Button {
+									viewStore.send(.deleteButtonTapped(id: contact.id))
+								} label: {
+									Image(systemName: "trash")
+										.foregroundStyle(.red)
+								}
 							}
 						}
+						.buttonStyle(.borderless)
 					}
 				}
 				.navigationTitle("Contacts")
@@ -39,6 +35,8 @@ struct ContentView: View {
 					}
 				}
 			}
+		} destination: { store in
+			ContactDetailView(store)
 		}
 		.sheet(
 			store: self.store.scope(
