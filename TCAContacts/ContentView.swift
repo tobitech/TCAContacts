@@ -9,7 +9,7 @@ struct ContentView: View {
 			WithViewStore(self.store, observe: \.contacts) { viewStore in
 				List {
 					ForEach(viewStore.state) { contact in
-						NavigationLink(state: ContactDetailFeature.State(contact)) {
+						NavigationLink(state: ContactDetailFeature.State(contact: contact)) {
 							HStack {
 								Text(contact.name)
 								Spacer()
@@ -36,26 +36,19 @@ struct ContentView: View {
 				}
 			}
 		} destination: { store in
-			ContactDetailView(store)
+			ContactDetailView(store: store)
 		}
 		.sheet(
-			store: self.store.scope(
-				state: \.$destination,
-				action: { .destination($0) }
-			),
+			store: self.store.scope(state: \.$destination, action: { .destination($0) }),
 			state: /ContactsFeature.Destination.State.addContact,
-			action: ContactsFeature.Destination.Action.addContact,
-			content: { addContactStore in
-				NavigationStack {
-					AddContactView(store: addContactStore)
-				}
+			action: ContactsFeature.Destination.Action.addContact
+		) { addContactStore in
+			NavigationStack {
+				AddContactView(store: addContactStore)
 			}
-		)
+		}
 		.alert(
-			store: self.store.scope(
-				state: \.$destination,
-				action: { .destination($0) }
-			),
+			store: self.store.scope(state: \.$destination, action: { .destination($0) }),
 			state: /ContactsFeature.Destination.State.alert,
 			action: ContactsFeature.Destination.Action.alert
 		)
