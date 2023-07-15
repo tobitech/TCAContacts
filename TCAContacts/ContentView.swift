@@ -53,9 +53,7 @@ struct ContentView: View {
 			state: /ContactsFeature.Destination.State.addContact,
 			action: ContactsFeature.Destination.Action.addContact,
 			destination: { addContactStore in
-				NavigationStack {
-					AddContactView(store: addContactStore)
-				}
+				AddContactView(store: addContactStore)
 			}
 		)
 		.alert(
