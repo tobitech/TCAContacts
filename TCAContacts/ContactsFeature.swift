@@ -36,15 +36,11 @@ extension ContactsFeature {
 struct ContactsFeature: ReducerProtocol {
 	struct State: Equatable {
 		var contacts: IdentifiedArrayOf<Contact> = []
-//		@PresentationState var addContact: AddContactFeature.State?
-//		@PresentationState var alert: AlertState<Action.Alert>?
 		@PresentationState var destination: Destination.State?
 		var path = StackState<ContactDetailFeature.State>()
 	}
 	enum Action: Equatable {
 		case addButtonTapped
-//		case addContact(PresentationAction<AddContactFeature.Action>)
-//		case alert(PresentationAction<Alert>)
 		case deleteButtonTapped(id: Contact.ID)
 		case destination(PresentationAction<Destination.Action>)
 		case path(StackAction<ContactDetailFeature.State, ContactDetailFeature.Action>)
@@ -67,13 +63,8 @@ struct ContactsFeature: ReducerProtocol {
 				)
 				return .none
 				
-//			case .addContact(.presented(.cancelButtonTapped)):
-//				state.addContact = nil
-//				return .none
-				
 			case let .destination(.presented(.addContact(.delegate(.saveContact(contact))))):
 				state.contacts.append(contact)
-//				state.addContact = nil
 				return .none
 				
 			case let .destination(.presented(.alert(.confirmDeletion(id: id)))):
@@ -111,9 +102,5 @@ struct ContactsFeature: ReducerProtocol {
 		.forEach(\.path, action: /Action.path) {
 			ContactDetailFeature()
 		}
-//		.ifLet(\.$addContact, action: /Action.addContact) {
-//			AddContactFeature()
-//		}
-//		.ifLet(\.$alert, action: /Action.alert)
 	}
 }
