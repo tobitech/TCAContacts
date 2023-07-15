@@ -38,11 +38,21 @@ struct ContentView: View {
 		} destination: { store in
 			ContactDetailView(store: store)
 		}
-		.sheet(
+//		.sheet(
+//			store: self.store.scope(state: \.$destination, action: { .destination($0) }),
+//			state: /ContactsFeature.Destination.State.addContact,
+//			action: ContactsFeature.Destination.Action.addContact,
+//			content: { addContactStore in
+//				NavigationStack {
+//					AddContactView(store: addContactStore)
+//				}
+//			}
+//		)
+		.navigationDestination(
 			store: self.store.scope(state: \.$destination, action: { .destination($0) }),
 			state: /ContactsFeature.Destination.State.addContact,
 			action: ContactsFeature.Destination.Action.addContact,
-			content: { addContactStore in
+			destination: { addContactStore in
 				NavigationStack {
 					AddContactView(store: addContactStore)
 				}
