@@ -49,6 +49,9 @@ struct ContactsFeature: ReducerProtocol {
 			case confirmDeletion(id: Contact.ID)
 		}
 	}
+	
+	@Dependency(\.uuid) var uuid
+	
 	var body: some ReducerProtocolOf<Self> {
 		Reduce { state, action in
 			switch action {
@@ -56,7 +59,7 @@ struct ContactsFeature: ReducerProtocol {
 				state.destination = .addContact(
 					AddContactFeature.State(
 						contact: Contact(
-							id: UUID(),
+							id: self.uuid(),
 							name: ""
 						)
 					)
