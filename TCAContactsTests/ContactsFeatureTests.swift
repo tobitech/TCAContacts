@@ -33,4 +33,28 @@ final class ContactsFeatureTests: XCTestCase {
 			$0.destination = nil
 		}
 	}
+	
+	func testAddFlow_NonExhaustive() async {
+		let store = TestStore(initialState: ContactsFeature.State()) {
+			ContactsFeature()
+		} withDependencies: {
+			$0.uuid = .incrementing
+		}
+		store.exhaustivity = .off
+		
+		// In non-exhaustive test stores there is no need to assert on state changes if you do not want to.
+		await store.send(.addButtonTapped)
+		await store.send(.destination(.presented(.addContact(.setName("Blob Jr.")))))
+		await store.send(.destination(.presented(.addContact(.saveButtonTapped))))
+		
+		// However, we cannot assert on that until all the actions have been received, and so we can do that by using this:
+		await store.skipReceivedActions()
+		
+		store.assert {
+			$0.contacts = [
+				Contact(id: UUID(0), name: "Blob Jr.")
+			]
+			$0.destination = nil
+		}
+	}
 }
