@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A80A86D2A7AEFC400DBEBD2 /* ContactsFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A80A86C2A7AEFC400DBEBD2 /* ContactsFeatureTests.swift */; };
 		0AB6FE942A5EEDDB00E7A19E /* TCAContactsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6FE932A5EEDDB00E7A19E /* TCAContactsApp.swift */; };
-		0AB6FE962A5EEDDB00E7A19E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6FE952A5EEDDB00E7A19E /* ContentView.swift */; };
+		0AB6FE962A5EEDDB00E7A19E /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6FE952A5EEDDB00E7A19E /* ContactsView.swift */; };
 		0AB6FE982A5EEDDD00E7A19E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AB6FE972A5EEDDD00E7A19E /* Assets.xcassets */; };
 		0AB6FE9C2A5EEDDD00E7A19E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AB6FE9B2A5EEDDD00E7A19E /* Preview Assets.xcassets */; };
 		0AB6FEA42A5EEE4800E7A19E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 0AB6FEA32A5EEE4800E7A19E /* ComposableArchitecture */; };
@@ -33,7 +33,7 @@
 		0A80A86C2A7AEFC400DBEBD2 /* ContactsFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFeatureTests.swift; sourceTree = "<group>"; };
 		0AB6FE902A5EEDDB00E7A19E /* TCAContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCAContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AB6FE932A5EEDDB00E7A19E /* TCAContactsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCAContactsApp.swift; sourceTree = "<group>"; };
-		0AB6FE952A5EEDDB00E7A19E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0AB6FE952A5EEDDB00E7A19E /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		0AB6FE972A5EEDDD00E7A19E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AB6FE992A5EEDDD00E7A19E /* TCAContacts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TCAContacts.entitlements; sourceTree = "<group>"; };
 		0AB6FE9B2A5EEDDD00E7A19E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				0AB6FE932A5EEDDB00E7A19E /* TCAContactsApp.swift */,
-				0AB6FE952A5EEDDB00E7A19E /* ContentView.swift */,
+				0AB6FE952A5EEDDB00E7A19E /* ContactsView.swift */,
 				0AB6FEA72A5EEF8400E7A19E /* AddContactFeature.swift */,
 				0AB6FEA52A5EEE6B00E7A19E /* ContactsFeature.swift */,
 				0AB6FEA92A5FA17000E7A19E /* ContactDetailFeature.swift */,
@@ -159,7 +159,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					0A80A8692A7AEFC400DBEBD2 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -225,7 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AB6FEAA2A5FA17000E7A19E /* ContactDetailFeature.swift in Sources */,
-				0AB6FE962A5EEDDB00E7A19E /* ContentView.swift in Sources */,
+				0AB6FE962A5EEDDB00E7A19E /* ContactsView.swift in Sources */,
 				0AB6FE942A5EEDDB00E7A19E /* TCAContactsApp.swift in Sources */,
 				0AB6FEA62A5EEE6B00E7A19E /* ContactsFeature.swift in Sources */,
 				0AB6FEA82A5EEF8400E7A19E /* AddContactFeature.swift in Sources */,
@@ -322,6 +322,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -383,6 +384,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -410,6 +412,7 @@
 				CODE_SIGN_ENTITLEMENTS = TCAContacts/TCAContacts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"TCAContacts/Preview Content\"";
 				DEVELOPMENT_TEAM = J8A5ZAM5GV;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -448,6 +451,7 @@
 				CODE_SIGN_ENTITLEMENTS = TCAContacts/TCAContacts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"TCAContacts/Preview Content\"";
 				DEVELOPMENT_TEAM = J8A5ZAM5GV;
 				ENABLE_HARDENED_RUNTIME = YES;

@@ -1,12 +1,12 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct ContentView: View {
+struct ContactsView: View {
 	@Perception.Bindable var store: StoreOf<ContactsFeature>
 	
 	var body: some View {
 		WithPerceptionTracking {
-			NavigationStackStore(self.store.scope(state: \.path, action: \.path)) {
+			NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
 				List {
 					ForEach(store.contacts) { contact in
 						NavigationLink(state: ContactDetailFeature.State(contact: contact)) {
@@ -51,7 +51,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
-		ContentView(
+		ContactsView(
 			store: Store(
 				initialState: ContactsFeature.State(
 					contacts: [

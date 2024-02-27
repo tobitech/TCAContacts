@@ -1,9 +1,11 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct ContactDetailFeature: Reducer {
+@Reducer
+struct ContactDetailFeature {
+	@ObservableState
 	struct State: Equatable {
-		@PresentationState var alert: AlertState<Action.Alert>?
+		@Presents var alert: AlertState<Action.Alert>?
 		let contact: Contact
 	}
 	
@@ -40,6 +42,7 @@ struct ContactDetailFeature: Reducer {
 				return .none
 			}
 		}
+		.ifLet(\.$alert, action: \.alert)
 	}
 }
 
@@ -55,18 +58,18 @@ extension AlertState where Action == ContactDetailFeature.Action.Alert {
 
 
 struct ContactDetailView: View {
-	let store: StoreOf<ContactDetailFeature>
-
+	@Perception.Bindable var store: StoreOf<ContactDetailFeature>
+	
 	var body: some View {
-		WithViewStore(self.store, observe: { $0 }) { viewStore in
+		WithPerceptionTracking {
 			Form {
 				Button("Delete") {
-					viewStore.send(.deleteButtonTapped)
+					store.send(.deleteButtonTapped)
 				}
 			}
-			.navigationBarTitle(Text(viewStore.contact.name))
+			.navigationBarTitle(Text(store.contact.name))
+			.alert($store.scope(state: \.alert, action: \.alert))
 		}
-		.alert(store: self.store.scope(state: \.$alert, action: { .alert($0) }))
 	}
 }
 

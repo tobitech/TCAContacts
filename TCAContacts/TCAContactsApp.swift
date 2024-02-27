@@ -27,7 +27,7 @@ struct TCAContactsApp: App {
 	
 	var body: some Scene {
 		WindowGroup {
-			ContentView(store: TCAContactsApp.store)
+			ContactsView(store: TCAContactsApp.store)
 		}
 	}
 }
