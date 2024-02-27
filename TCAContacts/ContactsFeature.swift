@@ -14,32 +14,22 @@ struct Contact: Equatable, Identifiable {
 }
 
 extension ContactsFeature {
-	struct Destination: ReducerProtocol {
-		enum State: Equatable {
-			case addContact(AddContactFeature.State)
-			case alert(AlertState<ContactsFeature.Action.Alert>)
-		}
-		
-		enum Action: Equatable {
-			case addContact(AddContactFeature.Action)
-			case alert(ContactsFeature.Action.Alert)
-		}
-		
-		var body: some ReducerProtocolOf<Self> {
-			Scope(state: /State.addContact, action: /Action.addContact) {
-				AddContactFeature()
-			}
-		}
+	@Reducer
+	enum Destination {
+		case addContact(AddContactFeature)
+		case alert(AlertState<ContactsFeature.Action.Alert>)
 	}
 }
 
-struct ContactsFeature: ReducerProtocol {
-	struct State: Equatable {
+@Reducer
+struct ContactsFeature {
+	@ObservableState
+	struct State {
 		var contacts: IdentifiedArrayOf<Contact> = []
-		@PresentationState var destination: Destination.State?
+		@Presents var destination: Destination.State?
 		var path = StackState<ContactDetailFeature.State>()
 	}
-	enum Action: Equatable {
+	enum Action {
 		case addButtonTapped
 		case deleteButtonTapped(id: Contact.ID)
 		case destination(PresentationAction<Destination.Action>)
@@ -52,7 +42,7 @@ struct ContactsFeature: ReducerProtocol {
 	
 	@Dependency(\.uuid) var uuid
 	
-	var body: some ReducerProtocolOf<Self> {
+	var body: some ReducerOf<Self> {
 		Reduce { state, action in
 			switch action {
 			case .addButtonTapped:
@@ -93,10 +83,8 @@ struct ContactsFeature: ReducerProtocol {
 				return .none
 			}
 		}
-		.ifLet(\.$destination, action: /Action.destination) {
-			Destination()
-		}
-		.forEach(\.path, action: /Action.path) {
+		.ifLet(\.$destination, action: \.destination)
+		.forEach(\.path, action: \.path) {
 			ContactDetailFeature()
 		}
 	}

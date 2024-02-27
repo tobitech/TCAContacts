@@ -2,36 +2,34 @@ import ComposableArchitecture
 import SwiftUI
 
 struct ContentView: View {
-	let store: StoreOf<ContactsFeature>
-
+	@Perception.Bindable var store: StoreOf<ContactsFeature>
+	
 	var body: some View {
-		NavigationStackStore(self.store.scope(state: \.path, action: { .path($0) })) {
-			WithViewStore(self.store, observe: \.contacts) { viewStore in
-				List {
-					ForEach(viewStore.state) { contact in
-						NavigationLink(state: ContactDetailFeature.State(contact: contact)) {
-							HStack {
-								Text(contact.name)
-								Spacer()
-								Button {
-									viewStore.send(.deleteButtonTapped(id: contact.id))
-								} label: {
-									Image(systemName: "trash")
-										.foregroundStyle(.red)
-								}
+		NavigationStackStore(self.store.scope(state: \.path, action: \.path)) {
+			List {
+				ForEach(store.contacts) { contact in
+					NavigationLink(state: ContactDetailFeature.State(contact: contact)) {
+						HStack {
+							Text(contact.name)
+							Spacer()
+							Button {
+								store.send(.deleteButtonTapped(id: contact.id))
+							} label: {
+								Image(systemName: "trash")
+									.foregroundStyle(.red)
 							}
 						}
-						.buttonStyle(.borderless)
 					}
+					.buttonStyle(.borderless)
 				}
-				.navigationTitle("Contacts")
-				.toolbar {
-					ToolbarItem {
-						Button {
-							viewStore.send(.addButtonTapped)
-						} label: {
-							Image(systemName: "plus")
-						}
+			}
+			.navigationTitle("Contacts")
+			.toolbar {
+				ToolbarItem {
+					Button {
+						store.send(.addButtonTapped)
+					} label: {
+						Image(systemName: "plus")
 					}
 				}
 			}
@@ -39,20 +37,13 @@ struct ContentView: View {
 			ContactDetailView(store: store)
 		}
 		.sheet(
-			store: self.store.scope(state: \.$destination, action: { .destination($0) }),
-			state: /ContactsFeature.Destination.State.addContact,
-			action: ContactsFeature.Destination.Action.addContact,
-			content: { addContactStore in
-				NavigationStack {
-					AddContactView(store: addContactStore)
-				}
+			item: $store.scope(state: \.destination?.addContact, action: \.destination.addContact)
+		) { addContactStore in
+			NavigationStack {
+				AddContactView(store: addContactStore)
 			}
-		)
-		.alert(
-			store: self.store.scope(state: \.$destination, action: { .destination($0) }),
-			state: /ContactsFeature.Destination.State.alert,
-			action: ContactsFeature.Destination.Action.alert
-		)
+		}
+		.alert($store.scope(state: \.destination?.alert, action: \.destination.alert))
 	}
 }
 
@@ -67,7 +58,7 @@ struct ContentView_Previews: PreviewProvider {
 						Contact(id: UUID(), name: "Blob Sr"),
 					]
 				),
-				reducer: ContactsFeature()
+				reducer:  { ContactsFeature() }
 			)
 		)
 	}

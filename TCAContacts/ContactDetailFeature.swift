@@ -1,7 +1,7 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct ContactDetailFeature: ReducerProtocol {
+struct ContactDetailFeature: Reducer {
 	struct State: Equatable {
 		@PresentationState var alert: AlertState<Action.Alert>?
 		let contact: Contact
@@ -21,7 +21,7 @@ struct ContactDetailFeature: ReducerProtocol {
 	
 	@Dependency(\.dismiss) var dismiss
 	
-	var body: some ReducerProtocolOf<Self> {
+	var body: some ReducerOf<Self> {
 		Reduce { state, action in
 			switch action {
 			case .alert(.presented(.confirmDeletion)):
