@@ -47,17 +47,19 @@ struct AddContactView: View {
 	@Perception.Bindable var store: StoreOf<AddContactFeature>
 
 	var body: some View {
-		Form {
-			// We can use the dynamic member lookup on $store to describe what piece of state you want to drive the binding, and then you can use the sending method to describe which action you want to send when the binding is written to.
-			TextField("Name", text: $store.contact.name.sending(\.setName))
-			Button("Save") {
-				store.send(.saveButtonTapped)
+		WithPerceptionTracking {
+			Form {
+				// We can use the dynamic member lookup on $store to describe what piece of state you want to drive the binding, and then you can use the sending method to describe which action you want to send when the binding is written to.
+				TextField("Name", text: $store.contact.name.sending(\.setName))
+				Button("Save") {
+					store.send(.saveButtonTapped)
+				}
 			}
-		}
-		.toolbar {
-			ToolbarItem {
-				Button("Cancel") {
-					store.send(.cancelButtonTapped)
+			.toolbar {
+				ToolbarItem {
+					Button("Cancel") {
+						store.send(.cancelButtonTapped)
+					}
 				}
 			}
 		}
