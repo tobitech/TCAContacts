@@ -16,6 +16,7 @@
 		0AB6FEA62A5EEE6B00E7A19E /* ContactsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6FEA52A5EEE6B00E7A19E /* ContactsFeature.swift */; };
 		0AB6FEA82A5EEF8400E7A19E /* AddContactFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6FEA72A5EEF8400E7A19E /* AddContactFeature.swift */; };
 		0AB6FEAA2A5FA17000E7A19E /* ContactDetailFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6FEA92A5FA17000E7A19E /* ContactDetailFeature.swift */; };
+		0ABDE80C2B91373F00680B23 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABDE80B2B91373F00680B23 /* View+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		0AB6FEA52A5EEE6B00E7A19E /* ContactsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFeature.swift; sourceTree = "<group>"; };
 		0AB6FEA72A5EEF8400E7A19E /* AddContactFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactFeature.swift; sourceTree = "<group>"; };
 		0AB6FEA92A5FA17000E7A19E /* ContactDetailFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailFeature.swift; sourceTree = "<group>"; };
+		0ABDE80B2B91373F00680B23 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				0AB6FE972A5EEDDD00E7A19E /* Assets.xcassets */,
 				0AB6FE992A5EEDDD00E7A19E /* TCAContacts.entitlements */,
 				0AB6FE9A2A5EEDDD00E7A19E /* Preview Content */,
+				0ABDE80B2B91373F00680B23 /* View+Extensions.swift */,
 			);
 			path = TCAContacts;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				0AB6FE962A5EEDDB00E7A19E /* ContactsView.swift in Sources */,
 				0AB6FE942A5EEDDB00E7A19E /* TCAContactsApp.swift in Sources */,
 				0AB6FEA62A5EEE6B00E7A19E /* ContactsFeature.swift in Sources */,
+				0ABDE80C2B91373F00680B23 /* View+Extensions.swift in Sources */,
 				0AB6FEA82A5EEF8400E7A19E /* AddContactFeature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
