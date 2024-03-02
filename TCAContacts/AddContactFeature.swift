@@ -55,6 +55,8 @@ struct AddContactView: View {
 					store.send(.saveButtonTapped)
 				}
 			}
+			.navigationTitle("Add Contact")
+			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
 				ToolbarItem {
 					Button("Cancel") {

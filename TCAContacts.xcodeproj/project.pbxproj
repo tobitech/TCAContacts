@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A60AC4F2B93BD4B002383B0 /* NavigationStackDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60AC4E2B93BD4B002383B0 /* NavigationStackDemo.swift */; };
+		0A60AC512B93BE3E002383B0 /* FactClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A60AC502B93BE3E002383B0 /* FactClient.swift */; };
 		0A80A86D2A7AEFC400DBEBD2 /* ContactsFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A80A86C2A7AEFC400DBEBD2 /* ContactsFeatureTests.swift */; };
 		0AB6FE942A5EEDDB00E7A19E /* TCAContactsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6FE932A5EEDDB00E7A19E /* TCAContactsApp.swift */; };
 		0AB6FE962A5EEDDB00E7A19E /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6FE952A5EEDDB00E7A19E /* ContactsView.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A60AC4E2B93BD4B002383B0 /* NavigationStackDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStackDemo.swift; sourceTree = "<group>"; };
+		0A60AC502B93BE3E002383B0 /* FactClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactClient.swift; sourceTree = "<group>"; };
 		0A80A86A2A7AEFC400DBEBD2 /* TCAContactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCAContactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A80A86C2A7AEFC400DBEBD2 /* ContactsFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsFeatureTests.swift; sourceTree = "<group>"; };
 		0AB6FE902A5EEDDB00E7A19E /* TCAContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCAContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +105,8 @@
 				0AB6FE992A5EEDDD00E7A19E /* TCAContacts.entitlements */,
 				0AB6FE9A2A5EEDDD00E7A19E /* Preview Content */,
 				0ABDE80B2B91373F00680B23 /* View+Extensions.swift */,
+				0A60AC4E2B93BD4B002383B0 /* NavigationStackDemo.swift */,
+				0A60AC502B93BE3E002383B0 /* FactClient.swift */,
 			);
 			path = TCAContacts;
 			sourceTree = "<group>";
@@ -227,12 +233,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A60AC512B93BE3E002383B0 /* FactClient.swift in Sources */,
 				0AB6FEAA2A5FA17000E7A19E /* ContactDetailFeature.swift in Sources */,
 				0AB6FE962A5EEDDB00E7A19E /* ContactsView.swift in Sources */,
 				0AB6FE942A5EEDDB00E7A19E /* TCAContactsApp.swift in Sources */,
 				0AB6FEA62A5EEE6B00E7A19E /* ContactsFeature.swift in Sources */,
 				0ABDE80C2B91373F00680B23 /* View+Extensions.swift in Sources */,
 				0AB6FEA82A5EEF8400E7A19E /* AddContactFeature.swift in Sources */,
+				0A60AC4F2B93BD4B002383B0 /* NavigationStackDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,7 +532,7 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.8.2;
+				minimumVersion = 1.9.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
