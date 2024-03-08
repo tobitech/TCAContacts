@@ -18,6 +18,7 @@ extension ContactsFeature {
 	enum Destination {
 		case addContact(AddContactFeature)
 		case alert(AlertState<ContactsFeature.Action.Alert>)
+		@ReducerCaseIgnored case docs
 	}
 }
 
@@ -34,6 +35,7 @@ struct ContactsFeature {
 		case deleteButtonTapped(id: Contact.ID)
 		case destination(PresentationAction<Destination.Action>)
 		case path(StackAction<ContactDetailFeature.State, ContactDetailFeature.Action>)
+		case docsButtonTapped
 		
 		enum Alert: Equatable {
 			case confirmDeletion(id: Contact.ID)
@@ -71,6 +73,10 @@ struct ContactsFeature {
 				return .none
 
 			case .destination:
+				return .none
+				
+			case .docsButtonTapped:
+				state.destination = .docs
 				return .none
 				
 			case let .path(.element(id: id, action: .delegate(.confirmDeletion))):

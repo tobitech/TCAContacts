@@ -33,6 +33,13 @@ struct ContactsView: View {
 							Image(systemName: "plus")
 						}
 					}
+					ToolbarItem {
+						Button {
+							store.send(.docsButtonTapped)
+						} label: {
+							Image(systemName: "doc.text.fill")
+						}
+					}
 				}
 //				.navigationDestinationWrapper(item: $store.scope(state: \.destination?.addContact, action: \.destination.addContact)) { store in
 //					AddContactView(store: store)
@@ -40,6 +47,7 @@ struct ContactsView: View {
 			} destination: { store in
 				ContactDetailView(store: store)
 			}
+			.alert($store.scope(state: \.destination?.alert, action: \.destination.alert))
 			.sheet(
 				item: $store.scope(state: \.destination?.addContact, action: \.destination.addContact)
 			) { addContactStore in
@@ -47,7 +55,11 @@ struct ContactsView: View {
 					AddContactView(store: addContactStore)
 				}
 			}
-			.alert($store.scope(state: \.destination?.alert, action: \.destination.alert))
+			.sheet(
+				item: $store
+			) { store in
+				Text("Your Documents")
+			}
 		}
 	}
 }
