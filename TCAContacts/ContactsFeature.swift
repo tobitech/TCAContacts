@@ -1,10 +1,3 @@
-//
-//  ContactsFeature.swift
-//  TCAContacts
-//
-//  Created by Oluwatobi Omotayo on 12/07/2023.
-//
-
 import Foundation
 import ComposableArchitecture
 

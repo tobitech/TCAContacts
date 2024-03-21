@@ -41,9 +41,6 @@ struct ContactsView: View {
 						}
 					}
 				}
-//				.navigationDestinationWrapper(item: $store.scope(state: \.destination?.addContact, action: \.destination.addContact)) { store in
-//					AddContactView(store: store)
-//				}
 			} destination: { store in
 				ContactDetailView(store: store)
 			}
