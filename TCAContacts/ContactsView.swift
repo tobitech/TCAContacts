@@ -52,11 +52,7 @@ struct ContactsView: View {
 					AddContactView(store: addContactStore)
 				}
 			}
-			.sheet(
-				item: $store
-			) { store in
-				Text("Your Documents")
-			}
+			.sheet(item: $store) { store in Text("Your Documents") }
 		}
 	}
 }

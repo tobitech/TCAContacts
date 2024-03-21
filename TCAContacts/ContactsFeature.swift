@@ -6,15 +6,6 @@ struct Contact: Equatable, Identifiable {
 	var name: String
 }
 
-extension ContactsFeature {
-	@Reducer
-	enum Destination {
-		case addContact(AddContactFeature)
-		case alert(AlertState<ContactsFeature.Action.Alert>)
-		@ReducerCaseIgnored case docs
-	}
-}
-
 @Reducer
 struct ContactsFeature {
 	@ObservableState
@@ -33,6 +24,13 @@ struct ContactsFeature {
 		enum Alert: Equatable {
 			case confirmDeletion(id: Contact.ID)
 		}
+	}
+	
+	@Reducer
+	enum Destination {
+		case addContact(AddContactFeature)
+		case alert(AlertState<ContactsFeature.Action.Alert>)
+		case docs
 	}
 	
 	@Dependency(\.uuid) var uuid
